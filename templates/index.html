@@ -39,18 +39,20 @@
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
+                    {% for about in about %}
                     <h1 class="mb-0">
-                        Gabriela
-                        <span class="text-primary">Ellen</span>
+                        {{ about.first_name}}
+                        <span class="text-primary">{{ about.second_name}}</span>
                     </h1>
                     <div class="subheading mb-5">
-                        João Pessoa · Paraíba, Brazil · (83) 99909-9483 ·
-                        <a href="mailto:name@email.com">dev.gabrielaellen@gmail.com</a>
+                        {{about.address}} · {{about.phone}} ·
+                        <a href="mailto:name@email.com">{{ about.email }}</a>
                     </div>
-                    <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+                    <p class="lead mb-5">{{ about.description }}</p>
                     <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/gabrielaellen/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/gabrielaellen" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="{{ about.link}}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="{{ about.link_2 }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    {% endfor %}
                     </div>
                 </div>
             </section>
@@ -61,10 +63,12 @@
                     <h2 class="mb-5">Experience</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Software Developer</h3>
-                            <div class="subheading mb-3">Secretária de Estado da Educação e da Ciência e Tecnologia</div>
+                            {% for experience in experiences %}
+                            <h3 class="mb-0">{{ experience.profession }}</h3>
+                            <div class="subheading mb-3">{{ experience.company}}</div>
                             <p>
-                                Develop systems for the Secretary of State for Education and Science and Technology, applying agile methodology in the work environment.</p>
+                                {{ experience.description }}</p>
+                            {% endfor %}
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">June 2022 - Present</span></div>
                     </div>
@@ -78,9 +82,10 @@
                     <h2 class="mb-5">Education</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Unipê - Centro Universitário de João Pessoa</h3>
-                            <div class="subheading mb-3">Web Developer</div>
-            
+                            {% for education in educations %}
+                            <h3 class="mb-0">{{education.institution}}</h3>
+                            <div class="subheading mb-3">{{education.course}}</div>
+                            {% endfor %}
                             
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">February 2022 - December 2023</span></div>
@@ -89,8 +94,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Escola Senhor do Bonfim</h3>
                             <div class="subheading mb-3">High School
-                            </div>
-                            
+                            </div>   
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary"> December 2012</span></div>
                     </div>
@@ -110,20 +114,15 @@
                         <li class="list-inline-item"><i class="fab fa-java"></i></li>
                     </ul>
                     <div class="subheading mb-3">Workflow</div>
+                    {% for skills in skills %}
                     <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Mobile-First, Responsive Design
+                            {{skills.workflow}}
                         </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Functional Teams
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Agile Development & Scrum
-                        </li>
+                        
                     </ul>
+                    {% endfor %}
                 </div>
             </section>
             <hr class="m-0" />
